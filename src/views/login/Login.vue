@@ -34,8 +34,8 @@
       return{
         //表单绑定对象（用户名，密码）
         loginForm:{
-          username:'dwed',
-          password:'dwedfwefd',
+          username:'admin',
+          password:'123456',
         },
         //表单绑定规则
         loginFormRules:{
@@ -64,6 +64,10 @@
           return this.$message.error('登录失败');
          }else
            this.$message.success('登录成功');
+         //保存taken
+          window.sessionStorage.setItem('token',res.data.token)
+          //路由跳转
+          this.$router.push('/home');
         })
       }
     }
