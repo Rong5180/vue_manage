@@ -13,10 +13,29 @@ Vue.use(ElementUI);
 
 //配置axios
 import axios from "axios";
+
+//实例化axios用于电商后台管理系统地址
+const axios1=axios.create();
 //配置请求根路径
-axios.defaults.baseURL='https://api.naccl.top/vue/shop/api/private/v1/'
+axios1.defaults.baseURL='https://api.naccl.top/vue/shop/api/private/v1/'
+//请求拦截 在请求头中挂载authorization
+axios1.interceptors.request.use(config=>{
+  config.headers.authorization=window.sessionStorage.getItem('token');
+  return config
+})
+
+// //配置请求根路径
+// axios.defaults.baseURL='https://api.naccl.top/vue/shop/api/private/v1/'
+// //请求拦截 在请求头中挂载authorization
+// axios.interceptors.request.use(config=>{
+//   config.headers.authorization=window.sessionStorage.getItem('token');
+//   return config
+// })
 //将axios挂载到Vue原型对象上
-Vue.prototype.$http=axios;
+
+Vue.prototype.$http=axios1;
+
+
 
 Vue.config.productionTip = false
 
