@@ -1,5 +1,6 @@
 <template>
   <div class="login_container">
+    <h2>{{total}}</h2>
     <div class="login_box">
 <!--      头像-->
       <div class="avator_box">
@@ -27,6 +28,7 @@
   </div>
 </template>
 
+
 <script>
   export default {
     name: "Login",
@@ -49,6 +51,8 @@
             { required: true, message: '请输入密码', trigger: 'blur' },
             { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
           ],
+          //网站访问总数
+          total:'',
         }
       }
     },
@@ -69,8 +73,8 @@
           //路由跳转
           this.$router.push('/home');
         })
-      }
-    }
+      },
+    },
   }
 </script>
 
