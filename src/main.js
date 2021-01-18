@@ -8,8 +8,13 @@ import './assets/css/global.css';
 import './assets/css/normalize.css';
 //导入字体图标
 import './assets/fonts/iconfont.css'
+
+//导入树形插件
+import TreeTable from 'vue-table-with-tree-grid'
 //注册ElementUI
 Vue.use(ElementUI);
+//树形组件全局注册
+Vue.component('tree-table',TreeTable)
 
 //配置axios
 import axios from "axios";
